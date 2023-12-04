@@ -4,20 +4,20 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   plugins: ['@typescript-eslint', 'eslint-plugin-react'], //定义了该eslint文件所依赖的插件
   env: {
     //指定代码的运行环境
     browser: true,
-    node: true
+    node: true,
   },
   settings: {
     //自动发现React的版本，从而进行规范react代码
     react: {
       pragma: 'React',
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   parserOptions: {
     //指定ESLint可以解析JSX语法
@@ -25,11 +25,11 @@ module.exports = {
     ecmaVersion: 8,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   rules: {
-    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'prettier/prettier': [1, { endOfLine: 'auto', singleQuote: true, trailingComma: 'es5' }],
     'no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }], // 允许使用短路、三目
     'func-names': ['error', 'as-needed'], // 需要时添加函数名称
     'no-param-reassign': ['error', { props: false }], // 函数形参可修改
@@ -42,8 +42,8 @@ module.exports = {
       'error',
       {
         maximum: 3,
-        when: 'always'
-      }
-    ]
-  }
+        when: 'always',
+      },
+    ],
+  },
 };
