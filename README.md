@@ -1,56 +1,50 @@
-# Getting Started with Create React App
+# Getting Started 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+这是一个集合了 react^18 + react-router-dom^6 + ts +  eslint + prettier + stylelint + husky + sass 干净的模板框架，
+其中以选配的方式添加了electron，也可以是 react + electron 的干净模板。
 
 ## Available Scripts
-
 In the project directory, you can run:
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ ```
+    "dev:pc": "cross-env NODE_ENV=development craco start", // pc开发
+    "dev:ele": "cross-env NODE_ENV=development electron-forge start", // electron 开发
+    "build:pc": "cross-env NODE_ENV=production craco build", // pc打包
+    "build:package": "cross-env NODE_ENV=production celectron-forge package",
+    "build:make": "electron-forge make", // electron 打包
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src", // eslint 检测代码
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src", // eslint 自动修复代码
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'", // prettier 自动修复格式
+```
+### 使用npm 
+#### npm install 安装依赖
+#### npm run 上面已经提供的脚本 
+例如开发 npm run dev:pc
+   
+### 使用yarn
+#### yarn 安装依赖
+#### yarn 上面已经提供的脚本 
+例如开发 yarn dev:pc
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**我们中心思想是你只需要一套react代码，即可运行在pc，mb，electron等不同环境，所有我们的项目还是以react为主。**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**我们分别使用prettier、stylelint 和eslint，来自定义配合定制你的代码风格，可以实现包括css书写规范的自动提示管理**
 
-我们使用 commitlint 工具来规范提交消息的格式。请在进行提交前遵循以下规范：
+**我们使用 husky 工具来修复和检测代码风格规范, 在git commit 前会执行自动执行以下代码修复代码格式和检测出不满足规范的代码。**
+``` npm run lint:fix
+    npm run lint
+    npm run format
+    git add .
+```
 
-- **FEAT**: 新功能
-- **FIX**: 修复 bug
-- **DOCS**: 文档更新
-- **STYLE**: 代码风格调整（不影响运行）
-- **REFACTOR**: 代码重构（没有新增功能、也没有修复 bug 的改动）
-- **CHORE**: 辅助工具、构建过程、编译工具等改动
-- **PERF**: 性能相关优化，如提高加载速度等
+**我们使用 commitlint 工具来规范提交消息的格式。请在进行提交前遵循以下规范：**
+
+- **#FEAT**: 新功能
+- **#FIX**: 修复 bug
+- **#DOCS**: 文档更新
+- **#STYLE**: 代码风格调整（不影响运行）
+- **#REFACTOR**: 代码重构（没有新增功能、也没有修复 bug 的改动）
+- **#CHORE**: 辅助工具、构建过程、编译工具等改动
+- **#PERF**: 性能相关优化，如提高加载速度等

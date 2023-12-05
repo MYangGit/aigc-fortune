@@ -27,8 +27,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
     "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "prepare": "husky install",
-    "start": "electron-forge start"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
