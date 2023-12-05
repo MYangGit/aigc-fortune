@@ -46,4 +46,6 @@ module.exports = {
       },
     ],
   },
+  // 忽略对某些文件的检查
+  ignorePatterns: ['node_modules/', 'build/', 'dist/', 'public/', 'config/', 'scripts/', 'src/electron/'],
 };
